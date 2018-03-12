@@ -1,0 +1,24 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0303 
+header_name {.h} 
+code_name {.cxx}
+decl {} {public global
+} 
+
+class UserInterface {open
+} {
+  Function {make_window()} {open
+  } {
+    Fl_Window {} {
+      label math-timer open selected
+      xywh {28 78 220 200} type Double visible
+    } {}
+  }
+}
+Function {main()} {open return_type int
+} {
+  code {UserInterface ui;
+ui.make_window()->show();
+return Fl::run();} {selected
+  }
+}

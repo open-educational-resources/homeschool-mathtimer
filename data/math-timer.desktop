@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=math-timer
+Name[en_US]=math-timer
+GenericName=Math program to test skills
+Comment=Beat the clock to complete various math problems before time runs out!
+Icon=math-timer
+Exec=math-timer
+Terminal=false
+Type=Application
+Categories=Utility;
+
