@@ -4,7 +4,38 @@ A simple math timer program to let kids do lots of math problems in a certain am
 
 ![Alt text](/screenshots/playscreen.png?raw=true "Play Screen")
 ![Alt text](/screenshots/win-screen.png?raw=true "You Win")
+
+## Ubuntu/Debian
+I have a PPA (personal package archive) with all my homeschool programs
+Add it this way (from a terminal), or use your favorite GUI to add a PPA
+
+```
+sudo add-apt-repository ppa:israeldahl/homeschool
+sudo apt update
+sudo apt install homeschool-mathtimer
+```
+Enjoy!
+
+## Nerd stuff below
+
+You can build this yourself with cmake, and some libraries, mostly FLTK and stdc++/gcc/x11/xpm/pkg-config libraries
+
+You probably have many of these already installed if you compile things often
+
+If you use Arch... please package this as an AUR for people :smile:
+
+### Note:
+If you use Fedora most dev packages have the ending -devel
+just do a:
+
+`yum search <thing>`
+
+or
+
+`dnf search <thing>`
+
 Build Depends on Debian/Ubuntu
+
 - cmake
 - gcc-multilib [amd64]
 - g++-multilib [amd64]
@@ -29,5 +60,9 @@ cmake ..
 ```
 Then once it configures run make
 You can then run
-`sudo make install`
 
+```
+make
+sudo make install
+```
+unless you are already root... then you probably didn't need to even read this section.
