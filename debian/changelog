@@ -1,6 +1,8 @@
-math-timer (0.0.1ubuntu1) UNRELEASED; urgency=medium
+homeschool-mathtimer (0.1.0ubuntu1) UNRELEASED; urgency=medium
 
   * Initial release.
+    - Timer added
+    - multiplication, addition, subtraction modes
+    - easy, intermediate, hard, super hero modes of difficulty
 
- -- israeldahl <israeldahl@israeldahl-ThinkPad-E560.local>  Mon, 12 Mar 2018 14:09:05 -0500
-
+ -- israeldahl <israeldahl@gmail.com>  Mon, 02 Apr 2018 19:06:46 -0500

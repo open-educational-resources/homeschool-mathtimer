@@ -3,11 +3,111 @@
 #ifndef math_timer_h
 #define math_timer_h
 #include <FL/Fl.H>
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <string>
+#include "../include/common.hpp"
 #include <FL/Fl_Double_Window.H>
+#include <FL/Fl_Scroll.H>
+#include <FL/Fl_Value_Input.H>
+#include <FL/Fl_Menu_Button.H>
+#include <FL/Fl_Value_Output.H>
+#include <FL/Fl_Button.H>
+#include <FL/Fl_Slider.H>
+#include <FL/Fl_Box.H>
 
 class UserInterface {
+protected:
+  int m_TYPE; 
+  int m_DIFFICULTY; 
 public:
+  int TOTAL; 
+  int m_TIMER; 
   Fl_Double_Window* make_window();
+  Fl_Value_Input *in1;
+  Fl_Value_Input *in2;
+  Fl_Value_Input *in3;
+  Fl_Value_Input *in4;
+  Fl_Value_Input *in5;
+  Fl_Value_Input *in6;
+  Fl_Value_Input *in7;
+  Fl_Value_Input *in8;
+  Fl_Value_Input *in9;
+  Fl_Value_Input *in10;
+  Fl_Value_Input *in11;
+  Fl_Value_Input *in12;
+  Fl_Value_Input *in13;
+  Fl_Value_Input *in14;
+  Fl_Value_Input *in15;
+  Fl_Value_Input *in16;
+  Fl_Value_Input *in17;
+  Fl_Value_Input *in18;
+  Fl_Value_Input *in19;
+  Fl_Value_Input *in20;
+  static Fl_Menu_Item menu_Choose[];
+private:
+  inline void cb_Addition_i(Fl_Menu_*, void*);
+  static void cb_Addition(Fl_Menu_*, void*);
+  inline void cb_Subtraction_i(Fl_Menu_*, void*);
+  static void cb_Subtraction(Fl_Menu_*, void*);
+  inline void cb_Division_i(Fl_Menu_*, void*);
+  static void cb_Division(Fl_Menu_*, void*);
+  inline void cb_x_i(Fl_Menu_*, void*);
+  static void cb_x(Fl_Menu_*, void*);
+  static Fl_Menu_Item menu_Difficulty[];
+  inline void cb_Easy_i(Fl_Menu_*, void*);
+  static void cb_Easy(Fl_Menu_*, void*);
+  inline void cb_Intermediate_i(Fl_Menu_*, void*);
+  static void cb_Intermediate(Fl_Menu_*, void*);
+  inline void cb_Hard_i(Fl_Menu_*, void*);
+  static void cb_Hard(Fl_Menu_*, void*);
+  inline void cb_Super_i(Fl_Menu_*, void*);
+  static void cb_Super(Fl_Menu_*, void*);
+public:
+  Fl_Value_Output *my_timer;
+private:
+  inline void cb_my_timer_i(Fl_Value_Output*, void*);
+  static void cb_my_timer(Fl_Value_Output*, void*);
+public:
+  Fl_Button *TimerOK;
+private:
+  inline void cb_TimerOK_i(Fl_Button*, void*);
+  static void cb_TimerOK(Fl_Button*, void*);
+public:
+  Fl_Slider *timer_slider;
+private:
+  inline void cb_timer_slider_i(Fl_Slider*, void*);
+  static void cb_timer_slider(Fl_Slider*, void*);
+public:
+  Fl_Value_Output *timer_total;
+  Fl_Box *win_box;
+  Fl_Button *Quit;
+private:
+  inline void cb_Quit_i(Fl_Button*, void*);
+  static void cb_Quit(Fl_Button*, void*);
+public:
+  Fl_Button *CheckAnswer;
+private:
+  inline void cb_CheckAnswer_i(Fl_Button*, void*);
+  static void cb_CheckAnswer(Fl_Button*, void*);
+public:
+  void make_equation(Fl_Value_Input *o,int TYPE);
+  void make_equations(int Type);
+  void make_math(Fl_Value_Input *o, std::string Operator);
+  bool check_equation(Fl_Value_Input *o);
+  void right(Fl_Value_Input *o);
+  void wrong(Fl_Value_Input *o);
+  double generate_random();
+  void check_all();
+  void color_label(Fl_Widget *o, unsigned int color);
+  void set_difficulty(int difficult);
+  void set_type(int Typer);
+  static void start_timer(void* data);
+  void reset_timer();
+  void you_win();
+  void you_lose();
+  void reset_everything();
 };
 int main();
 #endif

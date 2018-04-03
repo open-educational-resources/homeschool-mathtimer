@@ -2,23 +2,543 @@
 version 1.0303 
 header_name {.h} 
 code_name {.cxx}
-decl {} {public global
+decl {\#include <iostream>} {public global
+} 
+
+decl {\#include <ctime>} {public global
+} 
+
+decl {\#include <cstdlib>} {public global
+} 
+
+decl {\#include <string>} {public global
+} 
+
+decl {\#include "../include/common.hpp"} {public global
+} 
+
+decl {\#define RATE 0.1} {private global
 } 
 
 class UserInterface {open
 } {
+  decl {int m_TYPE;} {protected local
+  }
+  decl {int m_DIFFICULTY;} {protected local
+  }
+  decl {int TOTAL;} {public local
+  }
+  decl {int m_TIMER;} {public local
+  }
   Function {make_window()} {open
   } {
     Fl_Window {} {
-      label math-timer open selected
-      xywh {28 78 220 200} type Double visible
-    } {}
+      label {math-timer} open
+      xywh {333 54 660 575} type Double color 158
+      code0 {int num = rand()%10;}
+      code1 {set_type(0);}
+      code2 {m_TIMER=0;} visible
+    } {
+      Fl_Scroll {} {open
+        xywh {0 0 660 575} color 158
+      } {
+        Fl_Value_Input in1 {
+          xywh {105 21 60 49} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in2 {
+          xywh {105 73 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in3 {
+          xywh {105 127 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in4 {
+          xywh {105 181 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in5 {
+          xywh {105 235 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in6 {
+          xywh {105 289 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in7 {
+          xywh {105 343 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in8 {
+          xywh {105 397 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in9 {
+          xywh {105 451 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in10 {
+          xywh {105 505 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in11 {
+          xywh {284 20 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in12 {
+          xywh {284 73 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in13 {
+          xywh {284 127 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in14 {
+          xywh {284 181 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in15 {
+          xywh {284 235 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in16 {
+          xywh {284 289 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in17 {
+          xywh {284 343 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in18 {
+          xywh {284 397 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in19 {
+          xywh {284 451 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Value_Input in20 {
+          xywh {285 505 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+        }
+        Fl_Menu_Button {} {
+          label {Choose Type}
+          xywh {370 40 175 45} box FLAT_BOX color 92 selection_color 152 labelfont 1 labelsize 20
+        } {
+          MenuItem {} {
+            label {+ Addition}
+            callback {set_type(1);
+make_equations(1);}
+            xywh {5 5 100 20} labelfont 1
+          }
+          MenuItem {} {
+            label { - Subtraction}
+            callback {set_type(2);
+make_equations(2);}
+            xywh {5 5 100 20} labelfont 1
+          }
+          MenuItem {} {
+            label {÷ Division}
+            callback {set_type(3);
+make_equations(3);}
+            xywh {5 5 100 20} labelfont 1 deactivate
+          }
+          MenuItem {} {
+            label { x Multiplication}
+            callback {set_type(4);
+make_equations(4);}
+            xywh {5 5 100 20} labelfont 1
+          }
+        }
+        Fl_Menu_Button {} {
+          label Difficulty
+          xywh {375 110 170 45} box FLAT_BOX color 88 selection_color 95 labelfont 1 labelsize 20 textfont 1
+        } {
+          MenuItem {} {
+            label Easy
+            callback {set_difficulty(1);}
+            xywh {0 0 100 20} labelfont 1
+          }
+          MenuItem {} {
+            label Intermediate
+            callback {set_difficulty(2);}
+            xywh {10 10 100 20} labelfont 1
+          }
+          MenuItem {} {
+            label Hard
+            callback {set_difficulty(3);}
+            xywh {20 20 100 20} labelfont 1
+          }
+          MenuItem {} {
+            label {Super Hero}
+            callback {set_difficulty(4);}
+            xywh {30 30 100 20} labelfont 1
+          }
+        }
+        Fl_Value_Output my_timer {
+          label seconds
+          callback {o->value(m_TIMER);}
+          tooltip {Time Left} xywh {390 270 70 35} box FLAT_BOX color 223 labelfont 1 labelsize 20 align 8 textfont 1 textsize 20
+        }
+        Fl_Button TimerOK {
+          label {Start Timer}
+          callback {if(my_timer->value()>0){
+  m_TIMER=0;
+  reset_everything();
+  my_timer->value(m_TIMER);
+  color_label(my_timer,88);
+}
+else{
+  reset_everything();
+  m_TIMER=TOTAL;
+  color_label(my_timer, 63);
+  my_timer->value(m_TIMER);
+  Fl::add_timeout(RATE,start_timer, (void*)this);
+}}
+          tooltip {Start Timer} image {../img/timer.png} xywh {420 175 70 80} box NO_BOX color 61 labelfont 1 labelsize 20 align 32
+        }
+        Fl_Slider timer_slider {
+          label {Total Time}
+          callback {timer_total->value(o->value());
+TOTAL=timer_total->value();}
+          tooltip {Change the TOTAL time (seconds)} xywh {385 350 120 60} type Horizontal box GTK_DOWN_BOX color 173 selection_color 130 labelfont 1 labelsize 20 align 1 minimum 200 maximum 1500 step 10 value 500
+        }
+        Fl_Value_Output timer_total {
+          tooltip {TOTAL TIME} xywh {530 350 65 60} box FLAT_BOX color 175 value 500 textfont 1 textsize 20
+        }
+        Fl_Box win_box {
+          label {YOU WIN} selected
+          image {../img/WIN.png} xywh {0 0 660 575} box FLAT_BOX color 93 labelfont 1 labelsize 37 align 512 hide
+        }
+        Fl_Button Quit {
+          callback {exit(0);}
+          tooltip Quit image {../img/close.png} xywh {500 445 140 120} box NO_BOX color 61 labelfont 1 labelcolor 7
+        }
+        Fl_Button CheckAnswer {
+          callback {if(win_box->visible()){
+  win_box->hide();
+  reset_everything();
+}
+else{
+  check_all();
+}}
+          tooltip {Check Answers} image {../img/check-button.png} xywh {365 445 125 120} box NO_BOX color 61 labelfont 1 labelcolor 7
+        }
+      }
+    }
+  }
+  Function {make_equation(Fl_Value_Input *o,int TYPE)} {open
+  } {
+    code {//std::cout<<"Type="<<TYPE<<std::endl;
+color_label(o,255);
+switch(TYPE){
+  case 1:
+    make_math(o,"+");
+    break;
+  case 2:
+    make_math(o,"-");
+    break;
+  case 3:
+    make_math(o,"÷");
+    break;
+  case 4:
+    make_math(o,"x");
+    break;
+  case 0:
+    break;
+  default:
+     o->copy_label(" ");
+     o->value(0);
+     return;
+}} {}
+  }
+  Function {make_equations(int Type)} {open
+  } {
+    code {//std::cout<<"Type="<<Type<<std::endl;
+make_equation(in1,Type);
+make_equation(in1,Type);
+make_equation(in2,Type);
+make_equation(in3,Type);
+make_equation(in4,Type);
+make_equation(in5,Type);
+make_equation(in6,Type);
+make_equation(in7,Type);
+make_equation(in8,Type);
+make_equation(in9,Type);
+make_equation(in10,Type);
+make_equation(in11,Type);
+make_equation(in12,Type);
+make_equation(in13,Type);
+make_equation(in14,Type);
+make_equation(in15,Type);
+make_equation(in16,Type);
+make_equation(in17,Type);
+make_equation(in18,Type);
+make_equation(in19,Type);
+make_equation(in20,Type);} {}
+  }
+  Function {make_math(Fl_Value_Input *o, std::string Operator)} {open
+  } {
+    code {double a = generate_random();
+a = generate_random();
+double b = generate_random();
+b = generate_random();
+std::string A,B;
+o->copy_label("                   ");
+o->redraw();
+if(a>b){
+  A = linuxcommon::convert_num_to_string(a);
+  B = linuxcommon::convert_num_to_string(b);
+}
+else{
+  B = linuxcommon::convert_num_to_string(a);
+  A = linuxcommon::convert_num_to_string(b);
+}
+std::string Label=A+" "+Operator+" "+B+" = ";
+std::cout<<Label<<std::endl;
+o->copy_label(Label.c_str());} {}
+  }
+  Function {check_equation(Fl_Value_Input *o)} {open return_type bool
+  } {
+    code {const char* tmp=o->label();
+if(tmp==NULL)
+  return false;
+std::string Label=tmp;
+std::string DIV="÷";
+std::vector <std::string> EQUATION = linuxcommon::delimiter_vector_from_string(Label," ");
+std::string num1 = EQUATION[0];
+std::string OPERATOR = EQUATION[1];
+std::string num2 = EQUATION[2];
+double answer=0;
+if(OPERATOR.compare("+")==0){
+  //ADDITION
+double A = linuxcommon::convert_string_to_double(num1.c_str());
+double B = linuxcommon::convert_string_to_double(num2.c_str());
+
+  answer=A+B;
+}
+else if(OPERATOR.compare("-")==0){
+  //SUBTRACTION
+double A = linuxcommon::convert_string_to_double(num1.c_str());
+double B = linuxcommon::convert_string_to_double(num2.c_str());
+
+  answer=A-B;
+}
+else if(OPERATOR.compare("x")==0){
+  //MULTIPLICATION
+double A = linuxcommon::convert_string_to_double(num1.c_str());
+double B = linuxcommon::convert_string_to_double(num2.c_str());
+
+  answer=A*B;
+}
+else if(OPERATOR.compare(DIV)==0){
+  //DIVISION
+double A = linuxcommon::convert_string_to_double(num1.c_str());
+double B = linuxcommon::convert_string_to_double(num2.c_str());
+
+  if( (B==0)||(A==0) )
+    answer=0;
+  else{      
+   double remain= 0;//remainder(A,B);
+   // std::cout<<"Remainder="<<remain<<std::endl;
+    answer=A/B;
+    if( remain > 0 ){
+    //REMAINDER
+      right(o);
+      return true;
+    }
+    else{
+      wrong(o);
+      return false;
+    }
   }
 }
+else{
+  return false;
+}
+if(answer < 0 )
+  return false;
+
+double Value = o->value();
+if( answer == Value ){
+// YOU GOT IT RIGHT!!
+  right(o);
+  return true;
+}
+else{
+//YOU GOT IT WRONG
+  wrong(o);
+}
+return false;} {}
+  }
+  Function {right(Fl_Value_Input *o)} {open
+  } {
+    code {//std::cout<<o->label()<<"  RIGHT!"<<std::endl;
+color_label(o,63);} {}
+  }
+  Function {wrong(Fl_Value_Input *o)} {open
+  } {
+    code {//std::cout<<o->label()<<"  WRONG!"<<std::endl;
+color_label(o,88);} {}
+  }
+  Function {generate_random()} {open return_type double
+  } {
+    code {double num = 0;
+switch(m_DIFFICULTY){
+  case 1:
+    num = rand()%10;
+    break;
+  case 2:
+    num = rand()%25;
+    break;
+  case 3:
+    num = rand()%50;
+    break;
+  case 4:
+    num = rand()%75;
+    break;
+  case 5:
+    num = rand()%100;
+    break;
+  default:
+    num =  rand()%10;
+}
+return num;} {}
+  }
+  Function {check_all()} {open
+  } {
+    code {std::cout<<"Checking answers"<<std::endl;
+if(m_TYPE==0)
+  return;
+bool Win=true;
+bool inTime=true;
+if(m_TIMER<=0)
+  inTime=false;
+if(!check_equation(in1))
+  Win=false;
+if(!check_equation(in2))
+  Win=false;
+if(!check_equation(in3))
+  Win=false;
+if(!check_equation(in4))
+  Win=false;
+if(!check_equation(in5))
+  Win=false;
+if(!check_equation(in6))
+  Win=false;
+if(!check_equation(in7))
+  Win=false;
+if(!check_equation(in8))
+  Win=false;
+if(!check_equation(in9))
+  Win=false;
+if(!check_equation(in10))
+  Win=false;
+if(!check_equation(in11))
+  Win=false;
+if(!check_equation(in12))
+  Win=false;
+if(!check_equation(in13))
+  Win=false;
+if(!check_equation(in14))
+  Win=false;
+if(!check_equation(in15))
+  Win=false;
+if(!check_equation(in16))
+  Win=false;
+if(!check_equation(in17))
+  Win=false;
+if(!check_equation(in18))
+  Win=false;
+if(!check_equation(in19))
+  Win=false;
+if(!check_equation(in20))
+  Win=false;
+m_TIMER=0;
+if(Win && inTime){
+  you_win();
+}
+else{
+  you_lose();
+}} {}
+  }
+  Function {color_label(Fl_Widget *o, unsigned int color)} {open
+  } {
+    code {o->color(color);
+o->redraw();} {}
+  }
+  Function {set_difficulty(int difficult)} {open
+  } {
+    code {reset_timer();
+m_DIFFICULTY=difficult;
+make_equations(m_TYPE);} {}
+  }
+  Function {set_type(int Typer)} {open
+  } {
+    code {reset_timer();
+m_TYPE=Typer;} {}
+  }
+  Function {start_timer(void* data)} {open return_type {static void}
+  } {
+    code {UserInterface *o=(UserInterface *)data;
+if(o){
+  int thisTime = o->m_TIMER;
+  if(thisTime<=0)
+    return;
+  thisTime-=RATE;
+  std::cout<<"Timer::"<<thisTime<<"::"<<o->TOTAL<<std::endl;
+  o->m_TIMER=thisTime;
+  o->my_timer->value(thisTime);
+  o->my_timer->redraw();
+  Fl::repeat_timeout(RATE, start_timer, data);
+}} {}
+  }
+  Function {reset_timer()} {open
+  } {
+    code {color_label(my_timer,255);
+m_TIMER=0;
+my_timer->value(m_TIMER);} {}
+  }
+  Function {you_win()} {open
+  } {
+    code {printf("You WIN!!!\\n");
+win_box->show();} {}
+  }
+  Function {you_lose()} {open
+  } {
+    code {printf("You LOSE!\\n");} {}
+  }
+  Function {reset_everything()} {open
+  } {
+    code {color_label(in1,255);
+color_label(in2,255);
+color_label(in3,255);
+color_label(in4,255);
+color_label(in5,255);
+color_label(in6,255);
+color_label(in7,255);
+color_label(in8,255);
+color_label(in9,255);
+color_label(in10,255);
+color_label(in11,255);
+color_label(in12,255);
+color_label(in13,255);
+color_label(in14,255);
+color_label(in15,255);
+color_label(in16,255);
+color_label(in17,255);
+color_label(in18,255);
+color_label(in19,255);
+color_label(in20,255);
+in1->value(0);
+in2->value(0);
+in3->value(0);
+in4->value(0);
+in5->value(0);
+in6->value(0);
+in7->value(0);
+in8->value(0);
+in9->value(0);
+in10->value(0);
+in11->value(0);
+in12->value(0);
+in13->value(0);
+in14->value(0);
+in15->value(0);
+in16->value(0);
+in17->value(0);
+in18->value(0);
+in19->value(0);
+in20->value(0);
+reset_timer();} {}
+  }
+} 
+
 Function {main()} {open return_type int
 } {
   code {UserInterface ui;
 ui.make_window()->show();
-return Fl::run();} {selected
-  }
-}
+srand(time(NULL));
+return Fl::run();} {}
+} 

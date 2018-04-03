@@ -1,7 +1,7 @@
-Source: math-timer
+Source: homeschool-mathtimer
 Section: misc
 Priority: optional
-Maintainer: israeldahl <israeldahl@israeldahl-ThinkPad-E560.local>
+Maintainer: israeldahl <israeldahl@gmail.com>
 Build-Depends:
  debhelper (>= 9.0.0),
  cmake,
@@ -14,6 +14,7 @@ Build-Depends:
  libfltk1.3-compat-headers,
  libgcc1,
  libstdc++6,
+ libstdc++-5-dev | libstdc++6-4.7-dev,
  libx11-dev,
  libxpm-dev,
  fluid,
@@ -21,7 +22,8 @@ Build-Depends:
 Standards-Version: 3.9.7
 Homepage: 
 
-Package: math-timer
+Package: homeschool-mathtimer
+Replaces: math-timer
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: math-timer
