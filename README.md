@@ -1,4 +1,9 @@
-# math-timer
+# Homeschool Math Timer
+
+A simple math timer program to let kids do lots of math problems in a certain amount of time.  Large colorful graphics and multiple levels of difficulty make this a fun way to pass the time.
+
+![Alt text](/screenshots/playscreen.png?raw=true "Play Screen")
+![Alt text](/screenshots/win-screen.png?raw=true "You Win")
 Build Depends on Debian/Ubuntu
 - cmake
 - gcc-multilib [amd64]
