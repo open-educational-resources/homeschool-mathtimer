@@ -82,6 +82,11 @@ private:
 public:
   Fl_Value_Output *timer_total;
   Fl_Box *win_box;
+  Fl_Box *time_up;
+private:
+  inline void cb_time_up_i(Fl_Box*, void*);
+  static void cb_time_up(Fl_Box*, void*);
+public:
   Fl_Button *Quit;
 private:
   inline void cb_Quit_i(Fl_Button*, void*);

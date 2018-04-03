@@ -17,7 +17,7 @@ decl {\#include <string>} {public global
 decl {\#include "../include/common.hpp"} {public global
 } 
 
-decl {\#define RATE 0.1} {private global
+decl {\#define RATE 1.0} {private global
 } 
 
 class UserInterface {open
@@ -34,77 +34,78 @@ class UserInterface {open
   } {
     Fl_Window {} {
       label {math-timer} open
-      xywh {333 54 660 575} type Double color 158
+      xywh {627 54 660 575} type Double color 158
       code0 {int num = rand()%10;}
       code1 {set_type(0);}
-      code2 {m_TIMER=0;} visible
+      code2 {m_TIMER=0;}
+      code3 {TOTAL=3000;} visible
     } {
       Fl_Scroll {} {open
-        xywh {0 0 660 575} color 158
+        xywh {0 0 660 600} color 158
       } {
         Fl_Value_Input in1 {
-          xywh {105 21 60 49} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {135 21 60 49} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in2 {
-          xywh {105 73 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {135 73 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in3 {
-          xywh {105 127 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {135 127 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in4 {
-          xywh {105 181 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {135 181 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in5 {
-          xywh {105 235 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {135 235 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in6 {
-          xywh {105 289 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {135 289 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in7 {
-          xywh {105 343 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {135 343 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in8 {
-          xywh {105 397 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {135 397 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in9 {
-          xywh {105 451 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {135 451 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in10 {
-          xywh {105 505 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {135 505 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in11 {
-          xywh {284 20 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {314 20 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in12 {
-          xywh {284 73 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {314 73 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in13 {
-          xywh {284 127 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {314 127 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in14 {
-          xywh {284 181 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {314 181 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in15 {
-          xywh {284 235 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {314 235 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in16 {
-          xywh {284 289 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {314 289 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in17 {
-          xywh {284 343 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {314 343 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in18 {
-          xywh {284 397 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {314 397 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in19 {
-          xywh {284 451 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {314 451 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Value_Input in20 {
-          xywh {285 505 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
+          xywh {315 505 60 50} box FLAT_BOX labelfont 1 labelsize 18 textfont 1 textsize 18
         }
         Fl_Menu_Button {} {
           label {Choose Type}
-          xywh {370 40 175 45} box FLAT_BOX color 92 selection_color 152 labelfont 1 labelsize 20
+          xywh {400 40 175 45} box FLAT_BOX color 92 selection_color 152 labelfont 1 labelsize 20
         } {
           MenuItem {} {
             label {+ Addition}
@@ -133,7 +134,7 @@ make_equations(4);}
         }
         Fl_Menu_Button {} {
           label Difficulty
-          xywh {375 110 170 45} box FLAT_BOX color 88 selection_color 95 labelfont 1 labelsize 20 textfont 1
+          xywh {405 110 170 45} box FLAT_BOX color 88 selection_color 95 labelfont 1 labelsize 20 textfont 1
         } {
           MenuItem {} {
             label Easy
@@ -159,11 +160,13 @@ make_equations(4);}
         Fl_Value_Output my_timer {
           label seconds
           callback {o->value(m_TIMER);}
-          tooltip {Time Left} xywh {390 270 70 35} box FLAT_BOX color 223 labelfont 1 labelsize 20 align 8 textfont 1 textsize 20
+          tooltip {Time Left} xywh {420 270 70 35} box FLAT_BOX color 223 labelfont 1 labelsize 20 align 8 textfont 1 textsize 20
         }
         Fl_Button TimerOK {
           label {Start Timer}
-          callback {if(my_timer->value()>0){
+          callback {if (m_TYPE==0)
+  return;
+if(my_timer->value()>0){
   m_TIMER=0;
   reset_everything();
   my_timer->value(m_TIMER);
@@ -171,39 +174,50 @@ make_equations(4);}
 }
 else{
   reset_everything();
-  m_TIMER=TOTAL;
+  m_TIMER=TOTAL/10;
   color_label(my_timer, 63);
   my_timer->value(m_TIMER);
   Fl::add_timeout(RATE,start_timer, (void*)this);
 }}
-          tooltip {Start Timer} image {../img/timer.png} xywh {420 175 70 80} box NO_BOX color 61 labelfont 1 labelsize 20 align 32
+          tooltip {Start Timer} image {../img/timer.png} xywh {450 175 70 80} box NO_BOX color 61 labelfont 1 labelsize 20 align 32
         }
         Fl_Slider timer_slider {
           label {Total Time}
-          callback {timer_total->value(o->value());
-TOTAL=timer_total->value();}
-          tooltip {Change the TOTAL time (seconds)} xywh {385 350 120 60} type Horizontal box GTK_DOWN_BOX color 173 selection_color 130 labelfont 1 labelsize 20 align 1 minimum 200 maximum 1500 step 10 value 500
+          callback {double milisec=o->value();
+timer_total->value(milisec);
+TOTAL=milisec*10;}
+          tooltip {Change the TOTAL time (in seconds)} xywh {415 350 120 60} type Horizontal box GTK_DOWN_BOX color 173 selection_color 130 labelfont 1 labelsize 20 align 5 minimum 50 maximum 300 step 10 value 300
         }
         Fl_Value_Output timer_total {
-          tooltip {TOTAL TIME} xywh {530 350 65 60} box FLAT_BOX color 175 value 500 textfont 1 textsize 20
+          label seconds
+          tooltip {TOTAL TIME (in seconds)} xywh {560 350 65 60} box FLAT_BOX color 175 labelfont 1 labelsize 18 align 1 value 300 textfont 1 textsize 20
         }
         Fl_Box win_box {
-          label {YOU WIN} selected
+          label {YOU WIN}
           image {../img/WIN.png} xywh {0 0 660 575} box FLAT_BOX color 93 labelfont 1 labelsize 37 align 512 hide
+        }
+        Fl_Box time_up {
+          label {TIME IS UP}
+          callback {o->hide();}
+          xywh {0 0 660 600} box FLAT_BOX color 129 labelsize 91 labelcolor 7 hide
         }
         Fl_Button Quit {
           callback {exit(0);}
-          tooltip Quit image {../img/close.png} xywh {500 445 140 120} box NO_BOX color 61 labelfont 1 labelcolor 7
+          tooltip Quit image {../img/close.png} xywh {520 445 140 120} box NO_BOX color 61 labelfont 1 labelcolor 7
         }
         Fl_Button CheckAnswer {
           callback {if(win_box->visible()){
   win_box->hide();
   reset_everything();
 }
+else if (time_up->visible()){
+  reset_everything();
+  time_up->hide();
+}
 else{
   check_all();
 }}
-          tooltip {Check Answers} image {../img/check-button.png} xywh {365 445 125 120} box NO_BOX color 61 labelfont 1 labelcolor 7
+          tooltip {Check Answers} image {../img/check-button.png} xywh {385 445 125 120} box NO_BOX color 61 labelfont 1 labelcolor 7
         }
       }
     }
@@ -440,7 +454,8 @@ if(Win && inTime){
   you_win();
 }
 else{
-  you_lose();
+  if(!inTime)
+    you_lose();
 }} {}
   }
   Function {color_label(Fl_Widget *o, unsigned int color)} {open
@@ -463,16 +478,17 @@ m_TYPE=Typer;} {}
   } {
     code {UserInterface *o=(UserInterface *)data;
 if(o){
-  int thisTime = o->m_TIMER;
+  int thisTime = (o->m_TIMER) * 10;
   if(thisTime<=0)
     return;
   thisTime-=RATE;
   std::cout<<"Timer::"<<thisTime<<"::"<<o->TOTAL<<std::endl;
-  o->m_TIMER=thisTime;
-  o->my_timer->value(thisTime);
+  o->m_TIMER=thisTime/10;
+  o->my_timer->value(o->m_TIMER);
   o->my_timer->redraw();
   Fl::repeat_timeout(RATE, start_timer, data);
-}} {}
+}} {selected
+    }
   }
   Function {reset_timer()} {open
   } {
@@ -487,7 +503,8 @@ win_box->show();} {}
   }
   Function {you_lose()} {open
   } {
-    code {printf("You LOSE!\\n");} {}
+    code {printf("You LOSE!\\n");
+time_up->show();} {}
   }
   Function {reset_everything()} {open
   } {
